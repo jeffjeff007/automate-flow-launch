@@ -2,8 +2,16 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
+import { useScroll } from "@/hooks/use-scroll";
 
 const HeroSection: React.FC = () => {
+  const { scrollToSection } = useScroll();
+
+  const openCalendly = () => {
+    // Open Calendly in a new tab - you can replace this URL with your actual Calendly link
+    window.open("https://calendly.com/your-calendly-link", "_blank");
+  };
+
   return (
     <section className="relative overflow-hidden py-20 md:py-28 bg-white grid-pattern">
       <div className="container mx-auto px-4 relative z-10">
@@ -18,6 +26,7 @@ const HeroSection: React.FC = () => {
             <Button 
               size="lg" 
               className="bg-automation-blue hover:bg-blue-700 text-white font-medium px-8 py-6 rounded-lg flex items-center gap-2"
+              onClick={openCalendly}
             >
               <Calendar className="w-5 h-5" />
               Book a Free Automation Audit
@@ -26,6 +35,7 @@ const HeroSection: React.FC = () => {
               variant="outline" 
               size="lg" 
               className="border-automation-blue text-automation-blue hover:bg-blue-50 font-medium px-8 py-6 rounded-lg"
+              onClick={() => scrollToSection('projects')}
             >
               See My Projects
             </Button>

@@ -10,17 +10,17 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="bg-white rounded-xl p-6 gradient-card-bg card-shadow border border-gray-100 hover:border-automation-blue/30 transition-all duration-300 hover:translate-y-[-5px]">
-      <div className="mb-4 rounded-full bg-automation-blue/10 w-12 h-12 flex items-center justify-center text-automation-blue">
+    <div className="bg-white rounded-xl p-6 gradient-card-bg card-shadow border border-gray-100 hover:border-automation-blue/30 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg cursor-pointer group">
+      <div className="mb-4 rounded-full bg-automation-blue/10 w-12 h-12 flex items-center justify-center text-automation-blue group-hover:bg-automation-blue/20 transition-colors">
         {icon}
       </div>
-      <h3 className="font-semibold text-lg mb-2 text-automation-darkText">{title}</h3>
+      <h3 className="font-semibold text-lg mb-2 text-automation-darkText group-hover:text-automation-blue transition-colors">{title}</h3>
       <p className="text-gray-600 text-sm">{description}</p>
     </div>
   );
 };
 
-const ServicesSection: React.FC = () => {
+const ServicesSection: React.FC<{ id?: string }> = ({ id }) => {
   const services = [
     {
       icon: <FileText className="w-6 h-6" />,
@@ -50,7 +50,7 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-automation-lightGray">
+    <section id={id} className="py-20 bg-automation-lightGray">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-automation-darkText">What I Automate</h2>

@@ -1,6 +1,7 @@
 
 import React from "react";
 import { ArrowRight, Zap, Bot, Database } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
   icon: React.ReactNode;
@@ -10,6 +11,11 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ icon, title, description, techStack }) => {
+  const handleViewDetails = () => {
+    // You can replace this with a modal or link to a dedicated page
+    alert(`View details for ${title}`);
+  };
+
   return (
     <div className="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100 hover:border-automation-blue/30 transition-all duration-300">
       <div className="bg-gradient-to-r from-automation-blue to-automation-purple p-6 text-white flex items-center">
@@ -18,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ icon, title, description, tec
       </div>
       <div className="p-6">
         <p className="text-gray-600 mb-6">{description}</p>
-        <div>
+        <div className="mb-4">
           <p className="text-xs text-gray-500 mb-2">TECH STACK</p>
           <div className="flex flex-wrap gap-2">
             {techStack.map((tech, index) => (
@@ -31,12 +37,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ icon, title, description, tec
             ))}
           </div>
         </div>
+        <Button 
+          variant="outline"
+          size="sm"
+          className="text-automation-blue border-automation-blue hover:bg-blue-50 mt-2 w-full flex justify-center items-center"
+          onClick={handleViewDetails}
+        >
+          View Details <ArrowRight className="ml-1 w-3 h-3" />
+        </Button>
       </div>
     </div>
   );
 };
 
-const ProjectsSection: React.FC = () => {
+const ProjectsSection: React.FC<{ id?: string }> = ({ id }) => {
   const projects = [
     {
       icon: <Zap className="w-5 h-5" />,
@@ -59,7 +73,7 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id={id} className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-automation-darkText">Featured Projects</h2>

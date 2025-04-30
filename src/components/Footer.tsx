@@ -21,14 +21,18 @@ const Footer: React.FC = () => {
               <Mail className="w-5 h-5" />
             </a>
             <a 
-              href="#" 
+              href="https://linkedin.com" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-600 hover:text-automation-blue transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="#" 
+              href="https://github.com" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-600 hover:text-automation-blue transition-colors"
               aria-label="GitHub"
             >

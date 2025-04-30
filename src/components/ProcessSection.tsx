@@ -2,6 +2,7 @@
 import React from "react";
 import { Phone, Settings, Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScroll } from "@/hooks/use-scroll";
 
 interface ProcessStepProps {
   number: number;
@@ -14,7 +15,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ number, icon, title, descript
   return (
     <div className="flex flex-col items-center text-center">
       <div className="relative">
-        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-automation-blue mb-4 card-shadow">
+        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-automation-blue mb-4 card-shadow hover:shadow-md transition-shadow duration-300">
           {icon}
         </div>
         <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-automation-purple text-white flex items-center justify-center text-xs font-medium">
@@ -27,9 +28,11 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ number, icon, title, descript
   );
 };
 
-const ProcessSection: React.FC = () => {
+const ProcessSection: React.FC<{ id?: string }> = ({ id }) => {
+  const { scrollToSection } = useScroll();
+
   return (
-    <section className="py-20 gradient-bg">
+    <section id={id} className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-automation-darkText">How It Works</h2>
@@ -73,6 +76,7 @@ const ProcessSection: React.FC = () => {
           <Button 
             size="lg"
             className="bg-automation-blue hover:bg-blue-700 text-white font-medium px-8 py-6 rounded-lg"
+            onClick={() => scrollToSection('contact')}
           >
             Let's Talk Automation <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
