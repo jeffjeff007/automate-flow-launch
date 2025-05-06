@@ -8,13 +8,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <p className="font-medium text-xl text-automation-blue">Automate Flow</p>
+            <p className="font-medium text-xl text-automation-blue">J&O Automation Agency</p>
             <p className="text-gray-500 text-sm mt-2">Powered by AI & Automation</p>
           </div>
           
           <div className="flex items-center space-x-6">
             <a 
-              href="mailto:hello@automateflow.com" 
+              href="mailto:hello@joautomation.com" 
               className="text-gray-600 hover:text-automation-blue transition-colors"
               aria-label="Email"
             >
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="mt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Automate Flow. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} J&O Automation Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>
