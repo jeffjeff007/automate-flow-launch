@@ -7,9 +7,10 @@ import { useScroll } from "@/hooks/use-scroll";
 const HeroSection: React.FC = () => {
   const { scrollToSection } = useScroll();
 
-  const openCalendly = () => {
-    // Open Calendly in a new tab - you can replace this URL with your actual Calendly link
-    window.open("https://calendly.com/your-calendly-link", "_blank");
+  const openGoogleCalendar = () => {
+    // Open Google Calendar scheduling link in a new tab
+    // Replace this URL with your actual Google Calendar appointment scheduling link
+    window.open("https://calendar.google.com/calendar/appointments/schedules/AcZssZ0bVU08GBql9NHM0J_r3TAsKA3VKpQ9GJK82_oQHYie9boFDiqxNuTGy6Ged3mKsJW8LaYc4hQr", "_blank");
   };
 
   return (
@@ -26,7 +27,7 @@ const HeroSection: React.FC = () => {
             <Button 
               size="lg" 
               className="bg-automation-blue hover:bg-blue-700 text-white font-medium px-8 py-6 rounded-lg flex items-center gap-2"
-              onClick={openCalendly}
+              onClick={openGoogleCalendar}
             >
               <Calendar className="w-5 h-5" />
               Book a Free Automation Audit

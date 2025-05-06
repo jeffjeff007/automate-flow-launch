@@ -90,8 +90,9 @@ const ContactSection: React.FC<{ id?: string }> = ({ id }) => {
   };
 
   const scheduleCall = () => {
-    // Replace with your Calendly URL
-    window.open("https://calendly.com/your-calendly-link", "_blank");
+    // Open Google Calendar scheduling page in a new tab
+    // Replace with your actual Google Calendar appointment scheduling link
+    window.open("https://calendar.google.com/calendar/appointments/schedules/AcZssZ0bVU08GBql9NHM0J_r3TAsKA3VKpQ9GJK82_oQHYie9boFDiqxNuTGy6Ged3mKsJW8LaYc4hQr", "_blank");
   };
 
   return (
