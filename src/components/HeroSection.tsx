@@ -9,8 +9,7 @@ const HeroSection: React.FC = () => {
 
   const openGoogleCalendar = () => {
     // Open Google Calendar scheduling link in a new tab
-    // Replace this URL with your actual Google Calendar appointment scheduling link
-    window.open("https://calendar.google.com/calendar/appointments/schedules/AcZssZ0bVU08GBql9NHM0J_r3TAsKA3VKpQ9GJK82_oQHYie9boFDiqxNuTGy6Ged3mKsJW8LaYc4hQr", "_blank");
+    window.open("https://calendar.app.google/UM4k5z9Wd23gasp77", "_blank");
   };
 
   return (
