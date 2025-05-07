@@ -1,21 +1,23 @@
 
 import React from "react";
-import { FileText, Mail, Database, CheckCheck, Bot } from "lucide-react";
+import { FileText, Mail, Database, CheckCheck, Bot, Link } from "lucide-react";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  example: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, example }) => {
   return (
     <div className="bg-white rounded-xl p-6 gradient-card-bg card-shadow border border-gray-100 hover:border-automation-blue/30 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg cursor-pointer group">
       <div className="mb-4 rounded-full bg-automation-blue/10 w-12 h-12 flex items-center justify-center text-automation-blue group-hover:bg-automation-blue/20 transition-colors">
         {icon}
       </div>
       <h3 className="font-semibold text-lg mb-2 text-automation-darkText group-hover:text-automation-blue transition-colors">{title}</h3>
-      <p className="text-gray-600 text-sm">{description}</p>
+      <p className="text-gray-600 text-sm mb-2">{description}</p>
+      <p className="text-gray-500 text-xs italic">Example: {example}</p>
     </div>
   );
 };
@@ -23,29 +25,34 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 const ServicesSection: React.FC<{ id?: string }> = ({ id }) => {
   const services = [
     {
-      icon: <FileText className="w-6 h-6" />,
-      title: "Document Generation",
-      description: "Automate creation of contracts, proposals, and reports with dynamic data",
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "AI Email Assistants",
-      description: "Smart email responders and follow-ups that sound like your team wrote them",
-    },
-    {
       icon: <Database className="w-6 h-6" />,
-      title: "CRM & Database Sync",
-      description: "Keep your customer data in sync across all your platforms automatically",
+      title: "CRM Integrations",
+      description: "Connect your lead forms and customer data with popular CRM platforms",
+      example: "Connecting a lead form to HubSpot or Salesforce"
     },
     {
       icon: <CheckCheck className="w-6 h-6" />,
-      title: "Approval Workflows",
-      description: "Streamline approvals with automated routing and notifications",
+      title: "E-commerce Workflows",
+      description: "Streamline your online store operations with automated processes",
+      example: "Automating order fulfillment notifications"
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Marketing Automation",
+      description: "Create personalized marketing sequences that run on autopilot",
+      example: "Setting up automated email sequences based on user behavior"
+    },
+    {
+      icon: <Link className="w-6 h-6" />,
+      title: "Data Synchronization",
+      description: "Keep your data consistent across all your business applications",
+      example: "Syncing customer data between your CRM and email marketing platform"
     },
     {
       icon: <Bot className="w-6 h-6" />,
-      title: "AI Chatbots & Agents",
-      description: "Custom AI assistants that handle customer inquiries and internal processes",
+      title: "Custom Solutions",
+      description: "Tailor-made automation solutions for your unique workflows",
+      example: "Building a custom approval system for your specific business process"
     }
   ];
 
@@ -65,6 +72,7 @@ const ServicesSection: React.FC<{ id?: string }> = ({ id }) => {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              example={service.example}
             />
           ))}
         </div>
