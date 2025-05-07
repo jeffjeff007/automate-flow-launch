@@ -1,19 +1,35 @@
 
-import React, { useState } from "react";
+import React from "react";
+import { 
+  Database, 
+  Code, 
+  FileJson, 
+  MessageSquare, 
+  BookOpen, 
+  Cloud, 
+  Bot,
+  Briefcase 
+} from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface TechBadgeProps {
   name: string;
   description: string;
+  icon: React.ReactNode;
 }
 
-const TechBadge: React.FC<TechBadgeProps> = ({ name, description }) => {
+const TechBadge: React.FC<TechBadgeProps> = ({ name, description, icon }) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
           <div className="flex items-center justify-center bg-white rounded-lg py-4 px-6 card-shadow border border-gray-100 hover:border-automation-blue/20 hover:shadow-md transition-all duration-300 cursor-pointer">
-            <span className="font-medium text-automation-darkText">{name}</span>
+            <div className="flex items-center gap-3">
+              <div className="text-automation-blue">
+                {icon}
+              </div>
+              <span className="font-medium text-automation-darkText">{name}</span>
+            </div>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -28,35 +44,43 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
   const techTools = [
     {
       name: "Make",
-      description: "Visual automation platform for creating complex workflows"
+      description: "Visual automation platform for creating complex workflows",
+      icon: <Code className="w-5 h-5" />
     },
     {
       name: "Zapier",
-      description: "Connect apps and automate workflows with no-code"
+      description: "Connect apps and automate workflows with no-code",
+      icon: <Cloud className="w-5 h-5" />
     },
     {
       name: "n8n",
-      description: "Open-source workflow automation tool"
+      description: "Open-source workflow automation tool",
+      icon: <Code className="w-5 h-5" />
     },
     {
       name: "Airtable",
-      description: "Flexible database and spreadsheet hybrid"
+      description: "Flexible database and spreadsheet hybrid",
+      icon: <Database className="w-5 h-5" />
     },
     {
       name: "Google Workspace",
-      description: "Cloud-based productivity and collaboration tools"
+      description: "Cloud-based productivity and collaboration tools",
+      icon: <Briefcase className="w-5 h-5" />
     },
     {
       name: "OpenAI",
-      description: "Advanced AI models for text, code, and images"
+      description: "Advanced AI models for text, code, and images",
+      icon: <Bot className="w-5 h-5" />
     },
     {
       name: "Slack",
-      description: "Business communication and collaboration platform"
+      description: "Business communication and collaboration platform",
+      icon: <MessageSquare className="w-5 h-5" />
     },
     {
       name: "Notion",
-      description: "All-in-one workspace for notes, docs, and project management"
+      description: "All-in-one workspace for notes, docs, and project management",
+      icon: <BookOpen className="w-5 h-5" />
     }
   ];
 
@@ -70,7 +94,12 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {techTools.map((tech, index) => (
-            <TechBadge key={index} name={tech.name} description={tech.description} />
+            <TechBadge 
+              key={index} 
+              name={tech.name} 
+              description={tech.description} 
+              icon={tech.icon}
+            />
           ))}
         </div>
       </div>
