@@ -1,10 +1,13 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
 import { useScroll } from "@/hooks/use-scroll";
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  id?: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ id }) => {
   const { scrollToSection } = useScroll();
 
   const openGoogleCalendar = () => {
@@ -13,7 +16,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 bg-white grid-pattern">
+    <section id={id} className="relative overflow-hidden py-20 md:py-28 bg-white grid-pattern">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-automation-blue to-automation-purple bg-clip-text text-transparent animate-fade-in">

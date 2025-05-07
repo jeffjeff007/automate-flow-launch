@@ -1,5 +1,6 @@
 
 import React from "react";
+import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -11,8 +12,9 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen font-inter">
+      <Navigation />
       <main>
-        <HeroSection />
+        <HeroSection id="home" />
         <ServicesSection id="services" />
         <ProcessSection id="process" />
         <ProjectsSection id="projects" />
