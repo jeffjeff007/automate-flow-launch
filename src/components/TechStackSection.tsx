@@ -80,7 +80,10 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
     {
       name: "Google Workspace",
       description: "Cloud-based productivity and collaboration tools",
-      icon: <Briefcase className="w-5 h-5" />,
+      icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 15.5v-7c0-.65.37-1.23.96-1.5l6-3c.59-.28 1.28-.19 1.77.23l6 5C21.24 14.56 21.5 15.27 21.5 16v5.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M9 22V12L3.5 7.5M11.5 12l5.5-4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>,
       url: "https://workspace.google.com"
     },
     {
