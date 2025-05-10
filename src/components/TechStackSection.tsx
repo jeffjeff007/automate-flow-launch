@@ -30,9 +30,9 @@ const TechBadge: React.FC<TechBadgeProps> = ({ name, description, icon, url }) =
             href={url} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="block"
+            className="block h-full"
           >
-            <div className="flex items-center justify-center bg-white rounded-lg py-4 px-6 card-shadow border border-gray-100 hover:border-automation-blue/20 hover:shadow-md transition-all duration-300 cursor-pointer group">
+            <div className="flex items-center justify-center bg-white rounded-lg py-4 px-6 card-shadow border border-gray-100 hover:border-automation-blue/20 hover:shadow-md transition-all duration-300 cursor-pointer group h-full">
               <div className="flex items-center gap-3">
                 <div className="text-automation-blue">
                   {icon}
@@ -114,15 +114,16 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
           <p className="text-gray-600">Platforms and tools I work with</p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 auto-rows-fr">
           {techTools.map((tech, index) => (
-            <TechBadge 
-              key={index} 
-              name={tech.name} 
-              description={tech.description} 
-              icon={tech.icon}
-              url={tech.url}
-            />
+            <div key={index} className="h-full">
+              <TechBadge 
+                name={tech.name} 
+                description={tech.description} 
+                icon={tech.icon}
+                url={tech.url}
+              />
+            </div>
           ))}
         </div>
       </div>
