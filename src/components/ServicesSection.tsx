@@ -1,6 +1,6 @@
 
 import React from "react";
-import { FileText, Mail, Database, CheckCheck, Bot, Link } from "lucide-react";
+import { FileText, Mail, Database, CheckCheck, Bot, Link, Users } from "lucide-react";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -24,6 +24,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, exa
 
 const ServicesSection: React.FC<{ id?: string }> = ({ id }) => {
   const services = [
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Lead Management Automation",
+      description: "Automate your lead capture, qualification, and follow-up processes",
+      example: "Automatically routing leads to the right sales rep based on criteria and sending personalized follow-ups"
+    },
     {
       icon: <Database className="w-6 h-6" />,
       title: "CRM Integrations",
