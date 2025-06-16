@@ -13,6 +13,13 @@ import {
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface TechBadgeProps {
   name: string;
@@ -32,12 +39,12 @@ const TechBadge: React.FC<TechBadgeProps> = ({ name, description, icon, url }) =
             rel="noopener noreferrer" 
             className="block h-full"
           >
-            <div className="flex items-center justify-center bg-white rounded-lg py-4 px-6 card-shadow border border-gray-100 hover:border-automation-blue/20 hover:shadow-md transition-all duration-300 cursor-pointer group h-full">
+            <div className="flex items-center justify-center bg-white rounded-lg py-4 px-6 card-shadow border border-gray-100 hover:border-automation-blue/20 hover:shadow-md transition-all duration-300 cursor-pointer group h-full min-w-[200px]">
               <div className="flex items-center gap-3">
                 <div className="text-automation-blue">
                   {icon}
                 </div>
-                <span className="font-medium text-automation-darkText">{name}</span>
+                <span className="font-medium text-automation-darkText whitespace-nowrap">{name}</span>
                 <ExternalLink className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
@@ -81,8 +88,7 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
       name: "Google Workspace",
       description: "Cloud-based productivity and collaboration tools",
       icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 15.5v-7c0-.65.37-1.23.96-1.5l6-3c.59-.28 1.28-.19 1.77.23l6 5C21.24 14.56 21.5 15.27 21.5 16v5.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M9 22V12L3.5 7.5M11.5 12l5.5-4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>,
       url: "https://workspace.google.com"
     },
@@ -114,17 +120,29 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
           <p className="text-gray-600">Platforms and tools I work with</p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 auto-rows-fr">
-          {techTools.map((tech, index) => (
-            <div key={index} className="h-full">
-              <TechBadge 
-                name={tech.name} 
-                description={tech.description} 
-                icon={tech.icon}
-                url={tech.url}
-              />
-            </div>
-          ))}
+        <div className="relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {techTools.map((tech, index) => (
+                <CarouselItem key={index} className="pl-4 basis-auto">
+                  <TechBadge 
+                    name={tech.name} 
+                    description={tech.description} 
+                    icon={tech.icon}
+                    url={tech.url}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
         </div>
       </div>
     </section>
