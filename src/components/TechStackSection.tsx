@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Database, 
@@ -20,6 +19,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface TechBadgeProps {
   name: string;
@@ -59,6 +59,10 @@ const TechBadge: React.FC<TechBadgeProps> = ({ name, description, icon, url }) =
 };
 
 const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
+  const autoplay = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
+
   const techTools = [
     {
       name: "Make",
@@ -122,11 +126,14 @@ const TechStackSection: React.FC<{ id?: string }> = ({ id }) => {
         
         <div className="relative">
           <Carousel
+            plugins={[autoplay.current]}
             opts={{
               align: "start",
               loop: true,
             }}
             className="w-full"
+            onMouseEnter={() => autoplay.current.stop()}
+            onMouseLeave={() => autoplay.current.reset()}
           >
             <CarouselContent className="-ml-4">
               {techTools.map((tech, index) => (
